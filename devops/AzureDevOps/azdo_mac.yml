@@ -38,7 +38,7 @@ stages:
       inputs:
         targetType: 'inline'
         script: |
-          cd 6.0/Apps/WeatherTwentyOne/src/
+          cd src/
           dotnet restore WeatherTwentyOne.sln
 
     # https://docs.microsoft.com/en-us/dotnet/maui/macos/deployment/overview
@@ -47,15 +47,15 @@ stages:
       inputs:
         targetType: 'inline'
         script: |
-          cd 6.0/Apps/WeatherTwentyOne/src
+          cd src/
           dotnet build -f net6.0-maccatalyst -c Release -o ./artifacts
           dotnet publish -f net6.0-maccatalyst -c Release -p:BuildIpa=True -o ./artifacts
 
     - task: CopyFiles@2
       inputs:
         Contents: |
-          **/**/6.0/Apps/WeatherTwentyOne/src/artifacts/**/*.pkg
-          6.0/Apps/WeatherTwentyOne/src/artifacts/**/*.pkg
+          **/**/src/artifacts/**/*.pkg
+          src/artifacts/**/*.pkg
         TargetFolder: '$(Build.ArtifactStagingDirectory)'
 
     - task: PublishBuildArtifacts@1
@@ -108,7 +108,7 @@ stages:
       inputs:
         targetType: 'inline'
         script: |
-          cd 6.0/Apps/WeatherTwentyOne/src/
+          cd src/
           dotnet restore WeatherTwentyOne.sln
 
   # https://docs.microsoft.com/en-us/dotnet/maui/ios/deployment/overview
@@ -117,7 +117,7 @@ stages:
       inputs:
         targetType: 'inline'
         script: |
-          cd 6.0/Apps/WeatherTwentyOne/src
+          cd src/
           dotnet publish -f net6.0-ios -c Release
 
     - task: CopyFiles@2
