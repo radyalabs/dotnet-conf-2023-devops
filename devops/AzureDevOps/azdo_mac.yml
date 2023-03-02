@@ -112,7 +112,7 @@ stages:
     - task: CopyFiles@2
       inputs:
           Contents: |
-            **\**\6.0\src\WeatherTwentyOne\bin\Release\net6.0-android\publish\*.apk
+            **\**\src\WeatherTwentyOne\bin\Release\net6.0-android\publish\*.apk
             src\WeatherTwentyOne\bin\Release\net6.0-android\publish\*.apk
           TargetFolder: '$(Build.ArtifactStagingDirectory)'
 
