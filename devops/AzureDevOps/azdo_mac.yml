@@ -1,5 +1,6 @@
 trigger:
 - main
+- demo
 
 variables:
     BuildConfiguration: Release
